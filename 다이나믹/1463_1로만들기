@@ -1,0 +1,23 @@
+import sys
+input = sys.stdin.readline
+
+N = int(input().rstrip())
+store = [[0] for _ in range(N)]
+
+for i in range(0,N):
+    if i == 0:
+        store[0][0] = N
+        continue
+    store[i].pop()
+    for s in store[i-1]:
+        if s == 0:
+            break
+        if s % 3 == 0:   # 3으로 나누어 떨어지는 경우
+            store[i].append(s // 3)
+        if s % 2 == 0:  # 2로 나누어 떨어지는 경우
+            store[i].append(s // 2)
+        store[i].append(s - 1)
+    if 1 in store[i]:
+        break
+#print(store)
+print(i)
