@@ -2,11 +2,11 @@ def cal_standard_time(standard):
     # 시간범위 재설정
     # 958 + 10 -> 1008이어야됨. 
     hour = standard // 100
-    minute = standard % 100 +10
-    if minute >= 60:
+    minute = standard % 100
+    if minute >= 50:
         hour += 1
         minute -= 60
-    return hour*100 + minute
+    return hour*100 + minute +10
 
 
 def solution(schedules, timelogs, startday):
