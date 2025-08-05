@@ -38,10 +38,3 @@ def solution(numbers, hand):
         else:
             ldx, ldy = dx, dy
     return answer
-
-
-#왼손 1 4 7, 오른손 3 6 9, 가까운곳은 가까운 엄지/ 같으면 hand에 다라서
-#
-#[1, 3, 4, 5, 8, 2, 1, 4, 5, 9, 5]
-# L  R  L  L  L  R  L  L  L  R  L -- 나
-# L  R  L  L  L  R  L  L  R  R  L 
