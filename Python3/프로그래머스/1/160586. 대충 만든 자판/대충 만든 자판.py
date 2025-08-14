@@ -8,7 +8,7 @@ def solution(keymap, targets):
             for key in keymap:
                 if c in key:
                     temp = min(temp, key.index(c)+1)
-            print(c, temp)
+            #print(c, temp)
             if temp < 1000:
                 cnt += temp
             else:
