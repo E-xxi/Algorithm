@@ -1,6 +1,4 @@
 def solution(park, routes): #y, x 순으로 출력할것.    
-    # 0 0 0
-    # 0 0 0<- (1, 2)
     x, y = 0,0 # 시작지점
     H, W = len(park), len(park[0])
     obstacles = []
@@ -12,9 +10,6 @@ def solution(park, routes): #y, x 순으로 출력할것.
             for v in range(len(park[u])):
                 if 'X' == park[u][v]:
                     obstacles.append([u,v])
-                
-    #print('시작지점: ', x,y)
-    #print('obstacles: ', obstacles)
     
     way = {'E': (0,1), 'S':(1,0), 'W':(0,-1), 'N':(-1,0)}
     for r in routes:
@@ -28,7 +23,6 @@ def solution(park, routes): #y, x 순으로 출력할것.
         minx, maxx = min(x, x+ndx), max(x, x+ndx)
         miny, maxy = min(y, y+ndy), max(y, y+ndy)
         for obs in obstacles:
-            #print(minx, obs[0], maxx, miny, obs[1], maxy)
             if (minx <= obs[0] <= maxx) and (miny <= obs[1] <= maxy): #중간에 장애물이 있다면
                 #print(f'방향 {d}, 거리 {ndx, ndy}, 현재 위치 {x, y} 유지') 
                 break
