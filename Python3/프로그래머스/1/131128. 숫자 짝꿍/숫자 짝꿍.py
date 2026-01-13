@@ -23,9 +23,7 @@ def solution(X, Y):
     
     #각각 양쪽에 몇개있는지 알아야함
     for b in both:
-        count = min(X.count(b), Y.count(b))
-        if count:
-            answer = answer + [b] * count
-            #print(a, count, new)
+        answer = answer + [b] * min(X.count(b), Y.count(b))
+        #print(a, count, new)
     
     return ''.join(sorted(answer,reverse = True))
