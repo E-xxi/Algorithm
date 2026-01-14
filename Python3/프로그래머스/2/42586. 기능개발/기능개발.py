@@ -1,28 +1,30 @@
 from collections import deque
-import numpy as np
+import math
 
 def solution(progresses, speeds):
-    left = deque([100-p for p in progresses])
+    progresses = deque(progresses)
     speeds = deque(speeds)
     answer = []
     # 제일 앞에꺼가 완료되는 날짜에 같이 완료될수 있는거 아웃.
     
-    while left:
-        day = left[0] // speeds[0] + bool(left[0]%speeds[0])
-        left.popleft()
-        speeds.popleft()
-        
-        for i in range(len(left)):
-            left[i] -= speeds[i]*day
-        
+    while speeds:
         cnt = 1
-        while left:
-            if left[0] <= 0:
-                cnt += 1 
-                left.popleft()
+        dayleft = math.ceil((100 - progresses.popleft()) / speeds.popleft())
+
+        if not speeds:
+            return answer + [cnt]
+        
+        i = 0
+        for _ in range(len(progresses)):
+            progresses[i] += dayleft*speeds[i]
+            if (i == 0) and (progresses[i] >= 100):
+                cnt+=1
+                progresses.popleft()
                 speeds.popleft()
             else:
-                break
+                i +=1
+        answer.append(cnt)
+        #print(dayleft, progresses)
         
-        answer.append(cnt)        
+               
     return answer
