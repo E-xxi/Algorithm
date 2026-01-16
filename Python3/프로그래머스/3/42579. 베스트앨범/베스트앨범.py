@@ -1,5 +1,3 @@
-from collections import deque
-
 def solution(genres, plays):
     answer = []
     #장르별로 가장 많이 재생된 노래를 최대 두개 모아 베스트앨범 출시.  
@@ -15,11 +13,9 @@ def solution(genres, plays):
     
     #각 장르별 딕셔너리를 정렬해서 추출
     for g in genre_l.keys():
-        songs_l = deque(dict(sorted(genre_l[g].items(), key = lambda x:x[1], reverse = True)).keys())
-        i=0
-        while (i <2) and (songs_l):
-            answer.append(songs_l.popleft())
-            i+=1
-    #순서대로, 상위 2개 리턴..?
+        songs_l = list(dict(sorted(genre_l[g].items(), key = lambda x:x[1], reverse = True)).keys())
+        #print(songs_l)
+        #상위 2개 리턴
+        answer += songs_l[:min(len(songs_l),2)]
     
     return answer
