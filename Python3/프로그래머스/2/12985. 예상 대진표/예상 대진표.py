@@ -1,22 +1,15 @@
+import math 
 def solution(n,a,b):
-    answer = 1
+    answer = 0
     
-    #몇번째 라운드에 만나는가
-    l = [1 if i+1 in [a,b]  else 0 for i in range(n) ]
-    
-    
+    #1,2, 3,4, 5,6, 7,8
+    #1    2    3    4
     for i in range(n//2+1):
-        #확인
-        for k in range(0,len(l),2):
-            if l[k] and l[k+1]:
-                return answer
-            
-        l = [1 if l[j] or l[j+1] else 0 for j in range(0,len(l),2)]
+        #확인 향후의 인덱스 값끼리 비교하면됨
+        a, b = math.ceil(a/2), math.ceil(b/2)
         answer += 1
+        if a == b:
+            return answer        
         
     return answer
 
-'''
-	[0, 0, 0, 1, 0, 0, 1, 0]
-    [0,    1,    0,    1    ]
-'''
