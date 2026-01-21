@@ -1,12 +1,5 @@
+from collections import Counter
 def solution(nums):
-    answer = 0
-    n = len(nums) // 2
-    
-    #print(set(nums))
-    for i in range(len(set(nums))):
-        answer+=1
-        if n == answer:
-            break
-        
-            
-    return answer
+    n = len(nums)//2 # n 마리 선택
+    difcnt = len(Counter(nums).keys()) #종류 개수
+    return min(n, difcnt)
