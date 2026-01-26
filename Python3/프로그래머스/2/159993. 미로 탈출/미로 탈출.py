@@ -25,11 +25,7 @@ def find_target(L, target, maps):
                     return cnt
                 q.append((nx,ny,cnt+1))
                 maps[nx][ny] = 'X'
-    else:
-        return 0
-    
-    
-    return cnt
+    return 0
 
 def solution(maps):
     answer = 0
