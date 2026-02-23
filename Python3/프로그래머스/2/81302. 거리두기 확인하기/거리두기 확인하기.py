@@ -18,13 +18,11 @@ def check(person_idxs, room):
         for dx,dy in dxy:
             nx,ny = x+dx, y+dy
             if (0<=nx<5) and (0<=ny<5): #범위 안에 있고
-                #테두리에 1이 하나라도 있으면 안돼
-                # 1이 있는지 확인 -> 있으면 break
-                #O는 빈테이블/ X는 파티션 
-                if room[nx][ny] in ['1','P']: 
+                #테두리에 P가 있으면 안돼
+                if room[nx][ny] == 'P': 
                     return 0
                 elif room[nx][ny] == 'O':
-                    room[nx][ny] = '1'
+                    room[nx][ny] = 'P'
     return 1
 
 def solution(places):
