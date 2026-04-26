@@ -1,8 +1,6 @@
 def solution(numbers):
     answer = []
-    #비트가 2개 이하로만 다른거
-    #1개만 다른거 - 가장 마지막 비트가 0이면 -> 1로 변환
-    
+
     for num in numbers:
         b = ['0'] + list(bin(num)[2:])
 
